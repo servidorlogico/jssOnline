@@ -19,7 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
+Route::resource('post','PostController');
+Route::get('/{nickname}',[
+    'uses'=>'UserController@profile',
+    'as'=>'user.profile'
+    ]);
+    
 Route::get('/phpmyadmin',function(){
     
     return view('errors/503'); 

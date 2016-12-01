@@ -12,11 +12,17 @@ class Post extends Model
      
      
      public function staruser(){
-          return $this->belonsToMany('\App\User');   
+          return $this->belongsToMany('\App\User');   
      }
+     
+     
      
      public function comments(){
           return $this->hasMany('\App\CommentPost');
+     }
+     public function userpost(){
+          return $this->belongsTo('\App\User','user_id','id');
+          
      }
     //
 }

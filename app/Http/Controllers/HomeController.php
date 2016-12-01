@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = \App\Post::orderBy('created_at','DSC')->get();
+        foreach($posts as $post){
+            $post->userpost;
+        }
+        //dd($posts);
+        return view('home')->with('posts',$posts);
     }
 }
